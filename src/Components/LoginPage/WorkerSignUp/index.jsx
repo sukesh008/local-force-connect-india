@@ -35,7 +35,7 @@ const WorkerSignUp = () => {
   const handleNext = ()=> {
     const { firstName, lastName, mail, phone, city, state } = personalDetails;
     const hasError =
-      !firstName || !lastName || !mail || !phone || !city || !state || !fileData;
+      !firstName || !lastName || !mail || !phone || !city || !state;
 
     if (hasError) {
       setshowToaster(true);
@@ -52,7 +52,7 @@ const WorkerSignUp = () => {
 
   const handleRegistration = () => {
     const { skill, workExperience, education } = personalDetails;
-    const hasError = !skill || !workExperience || !education;
+    const hasError = !skill || !workExperience || !education || !fileData;
 
     if (hasError) {
       setshowToaster(true);

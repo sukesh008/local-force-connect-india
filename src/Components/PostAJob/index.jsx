@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./PostAJob.css"
 import { MenuItem, Select } from "@mui/material";
 import Button from "../ReusableComponents/Button";
@@ -21,11 +21,11 @@ const jobDetails = {
 
 
 const PostJob = () => {
+
   const [details, setDetails] = useState(jobDetails);
   const [showToaster,setShowToaster]=useState(false)
   const toasterTimer=useRef(null)
 
-  
 
   const handleInput = (e) => {
     const { name, value } = e.target;

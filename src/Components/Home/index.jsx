@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Button from "../ReusableComponents/Button";
 import FeaturedJobs from "./FeaturedJobs";
 import "./Home.css"
@@ -7,6 +8,16 @@ import WhatOurUserSays from "./WhatOurUsersSay";
 
 
 const Home= () => {
+
+useEffect(()=>{
+   localStorage.setItem("isLoggedIn",false)
+},[])
+
+
+
+
+
+
   return (
     <div className="home-main-container">
       <div className="home-container">

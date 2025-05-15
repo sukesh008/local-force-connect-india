@@ -13,12 +13,15 @@ import ErrorPage from "./Components/ErrorPage"
 import Footer from "./Components/Footer"
 import { Provider } from "react-redux"
 import store from "./Components/Redux/Store"
+import AuthData from "./Components/Auth"
+import RequiredAuth from "./Components/Auth/RequiredAuth"
 
 
 
 const App=()=>{
   const location=useLocation()
-  return  <Provider store={store}>
+  return  <AuthData>
+    <Provider store={store}>
     <div>
       {location.pathname !== "/*" && <NavBar />}
       {location.pathname !== "/*" && <WhatsApp />}
@@ -29,12 +32,13 @@ const App=()=>{
         <Route path="login" element={<LoginPage/>}/>
         <Route path="wrokersignup" element={<WorkerSignUp/>}/>
         <Route path="employer-register" element={<EmployeeRegister/>}/>
-        <Route path="post-job" element={<PostJob/>}/>
+        <Route path="post-job" element={<RequiredAuth><PostJob/></RequiredAuth> }/>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       {location.pathname !== "/*" && <Footer />}
     </div>
   </Provider>
+  </AuthData>
 }
 
 export default App

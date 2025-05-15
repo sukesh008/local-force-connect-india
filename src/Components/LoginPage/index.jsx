@@ -10,23 +10,37 @@ const workerSignInDetails = {
   workerPhone: "",
 };
 
+const employerSignInDetails = {
+  employerMail: "",
+  employerPhone: "",
+};
+
 const LoginPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [switchContainer, setSwitchContainer] = useState(false);
   const [loginOption, setLoginOption] = useState(false);
-  const [workerDetail, setWorkerDetail] = useState(workerSignInDetails);
+  const [workerLoginDetail, setWorkerLoginDetail] =
+    useState(workerSignInDetails);
+  const [employerLoginDetail, setEmployerLoginDetail] = useState(
+    employerSignInDetails
+  );
 
   const handleSendOTP = () => {
-    dispatch(signinWorkerAction(workerDetail));
+    dispatch(signinWorkerAction(workerLoginDetail));
   };
 
   const handleWorkerInput = (e) => {
     const { name, value } = e.target;
-    setWorkerDetail((p) => ({ ...p, [name]: value }));
+    setWorkerLoginDetail((p) => ({ ...p, [name]: value }));
   };
 
-  console.log(workerDetail);
+  const handleEmployerInput = (e) => {
+    const { name, value } = e.target;
+    setEmployerLoginDetail((p) => ({ ...p, [name]: value }));
+  };
+
+  console.log(workerLoginDetail);
 
   return (
     <div className="login-main-container">
@@ -105,7 +119,7 @@ const LoginPage = () => {
                         id="mail"
                         name="workerMail"
                         onChange={handleWorkerInput}
-                        value={workerDetail.workerMail}
+                        value={workerLoginDetail.workerMail}
                       />
                     </>
                   ) : (
@@ -115,35 +129,40 @@ const LoginPage = () => {
                         type="text"
                         placeholder="company@example.com"
                         id="mail"
+                        name="employerMail"
+                        onChange={handleEmployerInput}
+                        value={employerLoginDetail.employerMail}
                       />
                     </>
                   )}
                 </>
               ) : (
                 <>
-                {
-                  !switchContainer ?
-                  <>
-                    <label htmlFor="phone">Phone</label>
-                    <input
-                      type="text"
-                      placeholder="+91 9876543210"
-                      id="phone"
-                      name="workerPhone"
-                      onChange={handleWorkerInput}
-                      value={workerDetail.workerPhone}
-                    />
-                  </>
-                  :
-                  <>
-                    <label htmlFor="phone">Phone</label>
-                    <input
-                      type="text"
-                      placeholder="+91 9876543210"
-                      id="phone"
-                    />
-                  </>
-                  }
+                  {!switchContainer ? (
+                    <>
+                      <label htmlFor="phone">Phone</label>
+                      <input
+                        type="text"
+                        placeholder="+91 9876543210"
+                        id="phone"
+                        name="workerPhone"
+                        onChange={handleWorkerInput}
+                        value={workerLoginDetail.workerPhone}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <label htmlFor="phone">Phone</label>
+                      <input
+                        type="text"
+                        placeholder="+91 9876543210"
+                        id="phone"
+                        name="employerPhone"
+                        onChange={handleEmployerInput}
+                        value={employerLoginDetail.employerMail}
+                      />
+                    </>
+                  )}
                 </>
               )}
             </div>
