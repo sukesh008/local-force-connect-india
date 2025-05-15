@@ -1,0 +1,93 @@
+
+
+.employer-register-main-container{
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    border-bottom: 1px solid var(--black);
+    .employer-register-container{
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+        .employer-register-header{
+            display: flex;
+            flex-direction: column; 
+            row-gap: 10px;
+          align-items: center;   
+          .employer-header-title{
+            font-size: 32px;
+            font-weight: 600;
+          }     
+          .employer-header-subtitle{
+            font-size: 17px;
+            color: var(--light-gray);
+          }  
+        }
+        .employer-register-content{
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+            border: 1px solid var(--black);
+            padding: 20px;
+            border-radius: 5px;
+            width: clamp(200px,50vw,650px);
+            .employer-input-row{
+                display:flex;
+                column-gap: 30px;
+                .employer-input-field{
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 5px;
+                    label{
+                        font-size: 15px;
+                    }
+                    input{
+                        padding: 10px;
+                        border: 1px solid var(--lighter-gray);
+                        border-radius:5px;
+                    }
+                    .file-field{
+                        font-size: 14px;
+                        color: var(--grayish-blue);
+                    }
+                    textarea{
+                        height: 80px;
+                        border: 1px solid var(--lighter-gray);
+                        padding: 10px;
+                        border-radius: 5px;
+                    
+                    }
+                }
+            }
+            .employer-input-terms-row{
+                border: 1px solid var(--lighter-gray);
+                padding: 20px;
+                border-radius: 5px;
+                .employer-input-field{
+                    display: flex;
+                    column-gap: 20px;
+                    align-items: start;
+                    input{
+                        height: 20px;
+                        width: 20px;
+                        accent-color: var(--primary-blue);
+                    }
+                    .input-terms-field{
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: 5px;
+                        .input-terms-label{
+                            font-size: 15px;
+                            font-weight: 600;
+                        }
+                        span{
+                            font-size: 15px;
+                            color: var(--grayish-blue);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

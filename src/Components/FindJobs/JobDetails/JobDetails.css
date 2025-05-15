@@ -1,0 +1,20 @@
+.job-details-main-container {
+  .job-details-no-details-container {
+    display: flex;
+    justify-content: center;
+    height: 250px;
+    align-items: center;
+    .job-details-no-details-content{
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        align-items: center;
+        .no-job-details-title{
+            font-size: 20px;
+        }
+        .no-job-details-subtitle{
+            color: rgb(114, 113, 113);
+        }
+    }
+  }
+}

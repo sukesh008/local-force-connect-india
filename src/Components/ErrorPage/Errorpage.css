@@ -1,0 +1,28 @@
+.error-main-container{
+    display: flex;
+    justify-content: center;
+    height: 100dvh;
+    align-items: center;
+    .error-container{
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        align-items: center;
+        .error-name{
+            font-size: 40px;
+            font-weight: 600;
+        }
+        .error-content{
+            font-size: 22px;
+            color: rgb(114, 113, 113);
+        }
+        .error-return{
+            color: #1964f3;
+            font-size: 17px;
+            &:hover{
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+    }
+}

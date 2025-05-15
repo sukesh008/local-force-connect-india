@@ -1,0 +1,104 @@
+.home-main-container {
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    .home-header {
+      padding: 60px 0px;
+      background-color: rgb(244, 244, 244);
+      display: flex;
+      flex-direction: column;
+      row-gap: 25px;
+      .home-findjob-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 15px;
+        .home-findjob-title {
+          font-size: 50px;
+          font-weight: 600;
+        }
+        .home-findjob-subtitle {
+          color: rgb(114, 113, 113);
+          font-size: 20px;
+        }
+        .home-findjob-buttons {
+          display: flex;
+          column-gap: 15px;
+        }
+      }
+      .home-input-main-container {
+        display: flex;
+        justify-content: center;
+        .home-input-container {
+          display: flex;
+          align-items: center;
+          column-gap: 15px;
+          background-color: #fff;
+          padding: 10px;
+          border: 1px solid black;
+          border-radius: 5px;
+          .input-field {
+            display: flex;
+            align-items: center;
+            column-gap: 5px;
+            border: 1px solid rgb(214, 214, 214);
+            padding: 10px;
+            border-radius: 5px;
+            input {
+              border: none;
+              outline: none;
+              width: clamp(150px, 50vw, 300px);
+              font-size: 15px;
+            }
+          }
+        }
+      }
+    }
+    .home-popular-job-category {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      .home-popular-job-title {
+        font-size: 30px;
+        font-weight: 700;
+        text-align: center;
+      }
+      .home-popular-job-subtitle {
+        font-size: 17px;
+        color: rgb(114, 113, 113);
+        text-align: center;
+      }
+      .home-popular-jobs-visibility {
+        font-size: 18px;
+        color: #1964f3;
+        text-align: center;
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+    }
+    .home-ready-to-find-job {
+      display: flex;
+      flex-direction: column;
+      row-gap: 25px;
+      align-items: center;
+      background-color: #1964f3;
+      color: #fff;
+      padding: 60px;
+      .ready-to-find-title {
+        font-size: 30px;
+        font-weight: 700;
+      }
+      .ready-to-find-subtitle {
+        font-size: 22px;
+      }
+      .home-ready-to-find-job-buttons {
+        display: flex;
+        column-gap: 20px;
+      }
+    }
+   
+  }
+}

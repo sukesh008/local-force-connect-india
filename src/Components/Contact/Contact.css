@@ -1,0 +1,135 @@
+.contact-main-container {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  .contact-header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 15px;
+    .contact-header-title {
+      font-size: 30px;
+      font-weight: 600;
+    }
+    .contact-header-subtitle {
+      color: rgb(114, 113, 113);
+    }
+  }
+  .contact-container {
+    display: flex;
+    column-gap: 30px;
+
+    .contact-information {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      row-gap: 30px;
+      border: 1px solid black;
+      padding: 20px;
+      border-radius: 5px;
+      .contact-information-header {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .contact-information-content {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        .contact-information-via {
+          display: flex;
+          column-gap: 20px;
+          .contact-details {
+            display: flex;
+            flex-direction: column;
+            row-gap: 5px;
+            .contact-details-header {
+              font-weight: 500;
+            }
+            .contact-details-content {
+              color: rgb(114, 113, 113);
+            }
+          }
+        }
+      }
+    }
+    .contact-message-container {
+      flex: 2;
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      .contact-message-header {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .contact-message-content {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        .contact-input-row {
+          display: flex;
+          column-gap: 20px;
+          justify-content: space-between;
+          .contact-input-field {
+            display: flex;
+            flex-direction: column;
+            row-gap: 5px;
+            label {
+              font-size: 14px;
+            }
+            input {
+              width: clamp(150px, 50vw, 400px);
+              padding: 10px;
+              border: 1px solid rgb(221, 221, 221);
+              border-radius: 5px;
+            }
+          }
+        }
+      }
+      .contact-text-area {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+        label {
+          font-size: 14px;
+        }
+        textarea {
+          border: 1px solid rgb(221, 221, 221);
+          border-radius: 5px;
+          height: 150px;
+          width: 100%;
+        }
+      }
+    }
+  }
+  .contact-find-us{
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    .contact-find-us-header{
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .contact-find-us-map{
+        background-color: #f2f6fb;
+        color: rgb(114, 113, 113);
+        display: flex;
+        justify-content: center;
+        height: 300px;
+        align-items: center;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+  }
+}
+
+
+
+
+

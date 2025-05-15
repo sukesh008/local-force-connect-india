@@ -1,0 +1,112 @@
+.worker-signup-main-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0px;
+  border-bottom: 1px solid var(--black);
+  .worker-signup-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    
+    .worker-signup-header {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      row-gap: 10px;
+      .worker-signup-title {
+        font-size: 30px;
+        font-weight: 600;
+      }
+      .worker-signup-subtitle {
+        font-size: 17px;
+        color: var(--light-gray);
+      }
+    }
+    .worker-signup-content {
+      width: clamp(200px, 50vw, 600px);
+      display: flex;
+      flex-direction: column;
+      row-gap: 25px;
+      border: 1px solid var(--black);
+      border-radius: 5px;
+      padding: 20px;
+      .worker-signup-tabs {
+        display: flex;
+        border-bottom: 1px solid var(--lighter-gray);
+        .personal-details-tab{
+          padding-bottom: 15px;
+        }
+        .skills-tab{
+          padding-bottom: 15px;
+        }
+        .active{
+           border-bottom: 2px solid var(--primary-blue);
+        }
+        span {
+          flex: 1;
+          text-align: center;
+          font-size: 17px;
+        }
+      }
+     .worker-signup-first-page{
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+       .signup-one-input-row {
+        display: flex;
+        column-gap: 20px;
+        .input-field {
+          display: flex;
+          flex-direction: column;
+          row-gap: 5px;
+          flex: 1;
+          label {
+            font-size: 15px;
+          }
+          input {
+            padding: 10px;
+            border: 1px solid var(--lighter-gray);
+            border-radius: 5px;
+          }
+        }
+      }
+       .signup-next-button{
+        display: flex;
+        justify-content: end;
+      }
+     }
+     .worker-signup-second-page{
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      .signup-two-input-row{
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;  
+        label{
+          font-size: 15px;
+        }     
+        .file-input{
+          border: 1px solid var(--lighter-gray);
+          padding: 8px;
+          border-radius: 5px;
+        }
+        .file-field{
+          color: var(--light-gray);
+          font-size: 12px;
+        }
+        textarea{
+          border: 1px solid var(--lighter-gray);
+          height: 80px;
+          padding: 10px;
+          border-radius: 5px;
+        } 
+      }
+      .signup-two-buttons{
+        display: flex;
+        justify-content: space-between;
+      }
+     }
+    }
+  }
+}

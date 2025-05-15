@@ -1,0 +1,74 @@
+.feedback-container {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  .feedback-title {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .feedback-subtitle {
+    font-size: 17px;
+    color: rgb(114, 113, 113);
+    text-align: center;
+  }
+  .users-feedback-container {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    justify-content: center;
+    i {
+      border: 2px solid rgb(86, 86, 86);
+      border-radius: 50%;
+      padding: 10px;
+      box-sizing: content-box;
+    }
+    .users-feedback {
+      display: flex;
+      column-gap: 30px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      width: clamp(150px, 50vw, 800px);
+     .users-feedback::-webkit-scrollbar {
+        display: none; 
+      }
+      .feedback {
+        border: 1px solid black;
+        padding: 30px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+        flex: 0 0 400px;
+        .feedback-content {
+          color: rgb(114, 113, 113);
+        }
+        .user-details {
+          display: flex;
+          column-gap: 10px;
+          img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+          }
+          .user-job-details {
+            display: flex;
+            flex-direction: column;
+            row-gap: 5px;
+            .user-name {
+              font-size: 17px;
+              font-weight: 600;
+            }
+            .user-role {
+              color: rgb(114, 113, 113);
+            }
+          }
+        }
+      }
+    }
+   
+  }
+}

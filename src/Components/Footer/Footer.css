@@ -1,0 +1,105 @@
+
+.footer-main-container{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+ .home-footer{
+        display: flex;
+        justify-content: space-evenly;
+        padding: 30px 60px;
+        column-gap: 30px;
+        .home-footer-localblueforce{
+                display: flex;
+                flex-direction: column;
+                row-gap: 20px;
+                flex: 1;
+                .footer-local-header{
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+                .footer-local-content{
+                    font-size: 14px;
+                     color: rgb(114, 113, 113);
+                }
+        }
+        .home-footer-forworkers{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+            .footer-forworkers-header{
+                  font-size: 20px;
+                    font-weight: 600;
+            }
+            .footer-forworkers-content{
+                   display: flex;
+                flex-direction: column;
+                row-gap: 10px;
+                span{
+                    font-size: 14px;
+                    &:hover{
+                    color: #1964f3;
+                    cursor: pointer;
+                }
+                }
+            }
+        }
+        .home-footer-foremployers{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+            .footer-foremployers-header{
+                  font-size: 20px;
+                    font-weight: 600;
+            }
+            .footer-foremployers-content{
+                display: flex;
+                flex-direction: column;
+                row-gap: 10px;
+                span{
+                    font-size: 14px;
+                    &:hover{
+                    color: #1964f3;
+                    cursor: pointer;
+                }
+                }
+            }
+        }
+        .home-footer-contact{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+            .footer-contact-header{
+                   font-size: 20px;
+                    font-weight: 600;
+            }
+            .footer-contact-content{
+                display: flex;
+                flex-direction: column;
+                row-gap: 10px;
+                span{
+                    font-size: 14px;
+                }
+                .footer-contact-reachout{
+                  color: rgb(114, 113, 113);
+                }
+                .footer-contact-form{
+                    color: #1964f3;
+                    &:hover{
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+    .home-copy-rights{
+      text-align: center;
+      color: rgb(114, 113, 113);
+      font-size: 14px;
+      padding: 30px;
+      border-top: 1px solid rgb(216, 216, 216);
+    }
+}

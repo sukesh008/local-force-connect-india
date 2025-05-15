@@ -1,0 +1,66 @@
+
+.button{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    color: #fff;
+    border:1px solid #1964f3;  
+    border-radius: 5px;
+    padding:10px 15px;
+    font-size: 16px;
+    outline: none;
+    justify-content: center;
+    transition: all 0.2s ease;
+    &:hover{
+        cursor: pointer;
+        opacity: 0.5;
+    }
+}
+
+
+
+
+.primary{
+    background-color: #1964f3;
+    border: none;
+}
+
+.secondary{
+    background-color: rgb(252, 251, 251);
+    color: #1964f3;
+    &:hover{
+        background-color: rgb(252, 251, 251,0.9);
+    }
+   
+}
+
+.login-secondary{
+    background-color: #fff;
+    color: #1964f3;
+    
+     
+}
+
+ .login-secondary:hover {
+        background-color: rgb(25, 100, 243,0.5);
+        color: #fff;
+        
+    }
+
+.login-secondary:hover .bx{
+    color: #ffffff !important;
+}
+
+.ternary{
+    background-color: rgb(238, 155, 0);
+    border: none;
+    &:hover{
+        background-color: rgb(238, 155, 0,0.9);
+    }
+}
+
+.google-button{
+    background-color: var(--white);
+    color: var(--black);
+    border: 1px solid var(--lighter-gray);
+}

@@ -1,0 +1,54 @@
+.featured-jobs-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    padding: 0px 60px;
+    .featured-header{
+        display: flex;
+        justify-content: space-between;
+        .featured-title{
+            font-size: 30px;
+            font-weight: 600;
+        }
+        .featured-all-jobs{
+            color: #1964f3;
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    .featured-jobs{
+        display: flex;
+        column-gap: 30px;
+        .job{
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            width: clamp(150px,50vw,400px);
+            row-gap: 10px;
+            .job-field{
+                font-size: 18px;
+                font-weight: 600;
+            }
+            .job-company{
+                color: rgb(82, 82, 82);
+                font-size: 17px;
+            }
+            .job-location{
+                font-size: 14px;
+                color: rgb(114, 113, 113);
+            }
+            .job-salary{
+                font-size: 17px;
+                color: #1964f3;
+            }
+            &:hover{
+                cursor: pointer;
+                box-shadow: 2px 2px 5px rgb(210, 210, 210);
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-bottom: 1px solid black;
+  position: sticky;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  .navbar-company-header {
+    font-size: 25px;
+    font-weight: 700;
+    color: #1964f3;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .navbar-pages {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span {
+      font-size: 17px;
+      font-weight: 500;
+    }
+    span:hover {
+      cursor: pointer;
+      color: #1964f3;
+    }
+    .active {
+      color: #1964f3;
+    }
+    .navbar-buttons {
+      display: flex;
+      column-gap: 20px;
+    }
+  }
+}

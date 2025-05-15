@@ -1,0 +1,34 @@
+.home-popular-jobs{
+    padding: 0px 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    .popular-job{
+        display: flex;
+        column-gap: 10px;
+        border: 1px solid black;
+        padding: 20px;
+        border-radius: 5px;
+        width: clamp(150px,50vw,400px);
+        .job-icon{
+            font-size: 30px;
+        }
+        .job-details{
+            display: flex;
+            flex-direction: column;
+            row-gap: 5px;
+            .job-title{
+                font-weight: 600;
+                font-size: 18px;
+            }
+            .job-openings{
+                font-size: 14px;
+                color: rgb(114, 113, 113);
+            }
+        }
+        &:hover{
+            cursor: pointer;
+             box-shadow: 2px 2px 5px rgb(210, 210, 210);
+        }
+    }
+}

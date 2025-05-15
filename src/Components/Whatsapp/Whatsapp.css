@@ -1,0 +1,15 @@
+
+.whatsapp-container{
+    background-color: rgb(1, 176, 1);
+    padding: 10px;
+    width: fit-content;
+    border-radius: 50%;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid black;
+    &:hover{
+        cursor: pointer;
+         background-color: rgb(1, 176, 1,0.8 );
+    }
+}

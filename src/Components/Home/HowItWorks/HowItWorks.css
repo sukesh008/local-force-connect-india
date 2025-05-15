@@ -1,0 +1,47 @@
+
+
+.hit-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    background-color: rgb(244, 244, 244);
+    padding: 60px;
+    .hit-title{
+        font-size: 30px;
+        font-weight: 600;
+        text-align: center;
+    }
+    .hit-steps-container{
+        display: flex;
+        column-gap: 30px;
+        box-sizing: content-box;
+        .hit-step{
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color: #fff;
+            width: clamp(150px,50vw,400px);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+            text-align: center;
+            .hit-no{
+                background-color: #1964f3;
+                color: #fff;
+               padding: 10px 15px;
+               border-radius: 50%;
+               font-size: 18px;
+               font-weight: 600;
+            }
+            .hit-what-to-do{
+                font-size: 20px;
+                font-weight: 600;
+            }
+            .hit-details{
+                color: rgb(114, 113, 113);
+                font-size: 17px;
+                line-height: 30px;
+            }
+        }
+    }
+}
