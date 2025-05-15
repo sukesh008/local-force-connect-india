@@ -12,7 +12,8 @@ import PostJob from "./Components/PostAJob"
 import ErrorPage from "./Components/ErrorPage"
 import Footer from "./Components/Footer"
 import { Provider } from "react-redux"
-import store from "./Components/Redux/Reducer/Store"
+import store from "./Components/Redux/Store"
+
 
 
 const App=()=>{

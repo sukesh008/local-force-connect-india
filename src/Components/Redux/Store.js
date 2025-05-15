@@ -1,5 +1,5 @@
 import { applyMiddleware, legacy_createStore } from "redux";
-import rootReducer from "./RootReducer";
+import rootReducer from "./Reducer/RootReducer";
 import { thunk } from "redux-thunk";
 
 

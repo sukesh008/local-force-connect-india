@@ -1,13 +1,32 @@
 import { useNavigate } from "react-router-dom";
-import "./LoginPage.css"
+import "./LoginPage.css";
 import { useState } from "react";
 import Button from "../ReusableComponents/Button";
+import { useDispatch } from "react-redux";
+import { signinWorkerAction } from "../Redux/ActionCreator/Action";
 
+const workerSignInDetails = {
+  workerMail: "",
+  workerPhone: "",
+};
 
 const LoginPage = () => {
-    const navigate=useNavigate();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [switchContainer, setSwitchContainer] = useState(false);
   const [loginOption, setLoginOption] = useState(false);
+  const [workerDetail, setWorkerDetail] = useState(workerSignInDetails);
+
+  const handleSendOTP = () => {
+    dispatch(signinWorkerAction(workerDetail));
+  };
+
+  const handleWorkerInput = (e) => {
+    const { name, value } = e.target;
+    setWorkerDetail((p) => ({ ...p, [name]: value }));
+  };
+
+  console.log(workerDetail);
 
   return (
     <div className="login-main-container">
@@ -84,6 +103,9 @@ const LoginPage = () => {
                         type="text"
                         placeholder="name@example.com"
                         id="mail"
+                        name="workerMail"
+                        onChange={handleWorkerInput}
+                        value={workerDetail.workerMail}
                       />
                     </>
                   ) : (
@@ -99,15 +121,50 @@ const LoginPage = () => {
                 </>
               ) : (
                 <>
-                  <label htmlFor="phone">Phone</label>
-                  <input type="text" placeholder="+91 9876543210" id="phone" />
+                {
+                  !switchContainer ?
+                  <>
+                    <label htmlFor="phone">Phone</label>
+                    <input
+                      type="text"
+                      placeholder="+91 9876543210"
+                      id="phone"
+                      name="workerPhone"
+                      onChange={handleWorkerInput}
+                      value={workerDetail.workerPhone}
+                    />
+                  </>
+                  :
+                  <>
+                    <label htmlFor="phone">Phone</label>
+                    <input
+                      type="text"
+                      placeholder="+91 9876543210"
+                      id="phone"
+                    />
+                  </>
+                  }
                 </>
               )}
             </div>
-            <Button className="primary" buttonName="Send OTP" />
+            <Button
+              className="primary"
+              buttonName="Send OTP"
+              handleClick={handleSendOTP}
+            />
           </div>
           <span className="login-footer">
-            Don't have an account? <span className="sign-up-link" onClick={()=>navigate(switchContainer?"/employer-register" :"/wrokersignup")}>Sign up</span>
+            Don't have an account?{" "}
+            <span
+              className="sign-up-link"
+              onClick={() =>
+                navigate(
+                  switchContainer ? "/employer-register" : "/wrokersignup"
+                )
+              }
+            >
+              Sign up
+            </span>
           </span>
         </div>
       </div>
