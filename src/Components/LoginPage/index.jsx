@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import "./LoginPage.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Button from "../ReusableComponents/Button";
 import { useDispatch } from "react-redux";
-import { signinWorkerAction } from "../Redux/ActionCreator/Action";
+import { signinEmployerAction, signinWorkerAction } from "../Redux/ActionCreator/Action";
+import { UseAuth } from "../Auth";
+import Toaster from "../ReusableComponents/Toaster";
 
 const workerSignInDetails = {
   workerMail: "",
@@ -25,10 +27,43 @@ const LoginPage = () => {
   const [employerLoginDetail, setEmployerLoginDetail] = useState(
     employerSignInDetails
   );
+  const[showToaster,setShowToaster]=useState(false);
+  const[toasterContent,setToasterContent]=useState("")
+  const toasterTimer=useRef(null)
+  
 
   const handleSendOTP = () => {
-    dispatch(signinWorkerAction(workerLoginDetail));
+  if(!switchContainer){   
+    if(!workerLoginDetail.workerMail && !workerLoginDetail.workerPhone){ 
+              setShowToaster(true)
+              setToasterContent("Please enter Email or Phone number")
+              if(toasterTimer.current) clearTimeout(toasterTimer.current)
+              toasterTimer.current=setTimeout(()=>{
+            setShowToaster(false)
+            },3000)
+    }
+    else{
+      dispatch(signinWorkerAction(workerLoginDetail));
+    }
+  }
+  else if(switchContainer){   
+    if(!employerLoginDetail.employerMail && !employerLoginDetail.employerPhone){ 
+              setShowToaster(true)
+              setToasterContent("Please enter Email or Phone number")
+              if(toasterTimer.current) clearTimeout(toasterTimer.current)
+              toasterTimer.current=setTimeout(()=>{
+            setShowToaster(false)
+            },3000)
+    }
+    else{
+      dispatch(signinEmployerAction(employerLoginDetail));
+    }
   };
+}
+
+  const handleToaster=()=>{
+    setShowToaster(false)
+  }
 
   const handleWorkerInput = (e) => {
     const { name, value } = e.target;
@@ -39,6 +74,10 @@ const LoginPage = () => {
     const { name, value } = e.target;
     setEmployerLoginDetail((p) => ({ ...p, [name]: value }));
   };
+
+  const handleGoogleButton=(e)=>{
+    console.log("hii")
+  }
 
   console.log(workerLoginDetail);
 
@@ -79,6 +118,7 @@ const LoginPage = () => {
             <Button
               className="google-button"
               buttonName="Sign in with Google"
+              handleClick={handleGoogleButton}
               preIcon={
                 <img
                   src="https://img.icons8.com/?size=100&id=17949&format=png&color=000000"
@@ -187,6 +227,7 @@ const LoginPage = () => {
           </span>
         </div>
       </div>
+      {showToaster && <Toaster content={toasterContent} handleClick={handleToaster}/>}
     </div>
   );
 };

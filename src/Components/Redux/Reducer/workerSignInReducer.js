@@ -5,7 +5,7 @@ const initialstate={
     workerSignInData:{}
 }
 
-const workerSignInReducer=(state,{type,payload})=>{
+const workerSignInReducer=(state=initialstate,{type,payload})=>{
 
     switch(type){
         case SIGNIN_WORKER_ACTION.GET_WORKERDATA:

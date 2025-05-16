@@ -13,11 +13,6 @@ useEffect(()=>{
    localStorage.setItem("isLoggedIn",false)
 },[])
 
-
-
-
-
-
   return (
     <div className="home-main-container">
       <div className="home-container">

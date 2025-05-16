@@ -9,3 +9,11 @@ export const signinWorkerAction = (data) => {
     }
   };
 };
+
+
+export const signinEmployerAction=(data)=>{
+  return async(dispatch)=>{
+    const response=await axios.post("http://localhost:2222/empsignup",data);
+    dispatch(response?.data)
+  }
+}
