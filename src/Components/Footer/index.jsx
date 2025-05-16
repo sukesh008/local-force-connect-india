@@ -38,7 +38,7 @@ const navigate=useNavigate()
             </div>
             <Button
               buttonName="WhatsApp Support"
-              className="ternary"
+              className="whatsApp"
               preIcon={
                 <i
                   className="bx bx-phone"

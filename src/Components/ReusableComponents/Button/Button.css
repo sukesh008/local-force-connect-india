@@ -6,7 +6,7 @@
     color: #fff;
     border:1px solid #1964f3;  
     border-radius: 5px;
-    padding:10px 15px;
+    padding:8px 15px;
     font-size: 16px;
     outline: none;
     justify-content: center;
@@ -34,6 +34,12 @@
    
 }
 
+.ternary{
+    border: 1px solid var(--black);
+    color: var(--black);
+    background-color: var(--white);
+}
+
 .login-secondary{
     background-color: #fff;
     color: #1964f3;
@@ -51,7 +57,7 @@
     color: #ffffff !important;
 }
 
-.ternary{
+.whatsApp{
     background-color: rgb(238, 155, 0);
     border: none;
     &:hover{
@@ -64,3 +70,4 @@
     color: var(--black);
     border: 1px solid var(--lighter-gray);
 }
+

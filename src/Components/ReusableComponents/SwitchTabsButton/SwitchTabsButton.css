@@ -1,0 +1,25 @@
+
+.tab-button-container{
+    display: flex;
+    column-gap: 10px;
+    background-color: var(--lighter-blue);
+    width: fit-content;
+    padding:5px;
+    border-radius: 5px;
+  
+    .tab-button{
+       color: var(--grayish-blue);
+       padding: 8px 10px;
+         transition:all 0.5s ease;
+         font-size: 15px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .active{
+        background-color: var(--white);
+        color: var(--black);
+        border-radius: 5px;
+    }
+   
+}

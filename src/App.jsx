@@ -15,6 +15,8 @@ import { Provider } from "react-redux"
 import store from "./Components/Redux/Store"
 import AuthData from "./Components/Auth"
 import RequiredAuth from "./Components/Auth/RequiredAuth"
+import WorkerDashboard from "./Components/WorkerDashboard"
+import TabButton from "./Components/ReusableComponents/SwitchTabsButton"
 
 
 
@@ -25,7 +27,8 @@ const App=()=>{
     <div>
       {location.pathname !== "/*" && <NavBar />}
       {location.pathname !== "/*" && <WhatsApp />}
-      <Routes>
+      <WorkerDashboard/>
+      {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="findjobs" element={<FindJobs />} />
         <Route path="contact" element={<Contact />} />
@@ -34,7 +37,7 @@ const App=()=>{
         <Route path="employer-register" element={<EmployeeRegister/>}/>
         <Route path="post-job" element={<RequiredAuth><PostJob/></RequiredAuth> }/>
         <Route path="*" element={<ErrorPage />} />
-      </Routes>
+      </Routes> */}
       {location.pathname !== "/*" && <Footer />}
     </div>
   </Provider>

@@ -1,0 +1,84 @@
+
+
+.profile-summary-main-container{
+    .summary-container{
+        border: 1px solid var(--black);
+        padding: 20px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        .summary-header{
+            font-size: 25px;
+            font-weight: 500;
+        }
+        .summary-content{
+            font-size: 17px;
+            line-height: 25px;
+        }
+        .summary-skills{
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            .skills-header{
+                font-size: 17px;
+                font-weight: 500;
+            }
+            .summary-skills-container{
+                display: flex;
+                gap: 10px;
+            }
+        }
+        .summary-recent-experience{
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            .recent-experience-header{
+                 font-size: 17px;
+                font-weight: 500;
+            }
+            .recent-experience-content{
+                border: 1px solid var(--lighter-gray);
+                padding: 20px;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                row-gap: 5px;
+                .recent-experience-role{
+                    display: flex;
+                    justify-content: space-between;
+                    .role-name{
+                        font-size: 17px;
+                        font-weight: 450;
+                    }
+                    .recent-experience-duration{
+                        font-size: 14px;
+                        color: var(--light-gray);
+                    }
+                }
+                .recent-experience-company{
+                    font-size: 14px;
+                        color: var(--light-gray);
+                }
+                .recent-experience-about-role{
+                 padding-top: 5px;
+                    font-size: 14px;
+                }
+            }
+            
+        }
+        .summary-recent-application{
+                  display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+                .recent-application-header{
+                 font-size: 17px;
+                font-weight: 500;
+            }
+            }
+            .profile-summary-buttons{
+                display: flex;
+                justify-content: space-between;
+            }
+    }
+}

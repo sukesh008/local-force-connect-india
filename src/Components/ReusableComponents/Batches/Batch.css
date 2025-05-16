@@ -1,0 +1,17 @@
+
+.batch-container{  
+    border-radius: 20px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    .batch-content{
+        padding: 2px 8px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+}
+
+.skills{
+   border: 1px solid var(--primary-blue);
+   color:var(--black);
+}
