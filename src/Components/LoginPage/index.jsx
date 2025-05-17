@@ -81,13 +81,12 @@ const LoginPage = () => {
   };
 
   const handleGoogleButton=(e)=>{
-    console.log("google-button")
-    if(currentTab==="Worker Login"){
-      navigate("/worker-dashboard")
-    }
+    // if(currentTab==="Worker Login" ){
+    //   navigate("/worker-dashboard")
+    // }
+    console.log("hii")
   }
 
-  console.log(workerLoginDetail);
 
   return (
     <div className="login-main-container">
@@ -106,7 +105,8 @@ const LoginPage = () => {
           </div>
 
           <div className="login-content">
-            <Button
+          <div className="login-google-button">
+             <a href="http://localhost:2222/auth/google"> <Button
               className="google-button"
               buttonName="Sign in with Google"
               handleClick={handleGoogleButton}
@@ -116,7 +116,8 @@ const LoginPage = () => {
                   alt="google"
                 />
               }
-            />
+            /></a>
+          </div>
             <div className="login-divider">
               <span className="login-divider-content">OR CONTINUE WITH</span>
             </div>

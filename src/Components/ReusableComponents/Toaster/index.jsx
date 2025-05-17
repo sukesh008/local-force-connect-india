@@ -13,12 +13,3 @@ const Toaster=({content,handleClick,className,type})=>{
 }
 
 export default Toaster
-
-
-{/* <div className={`toaster-main-container ${className}`} >
-        <span className="toaster-header">
-            <span className={`toaster-title ${className}`}>{className}</span>
-            <Close className="close-button" onClick={handleClick}/>
-            </span>
-        <span className="toaster-content">{content}</span>
-        </div> */}

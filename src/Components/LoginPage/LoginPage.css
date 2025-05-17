@@ -32,11 +32,17 @@
         display: flex;
         flex-direction: column;
         row-gap: 20px;
-        Button {
+        .login-google-button{
+          a{
+            text-decoration: none;
+          }
+          Button {
+              width: 100%;
           img {
             width: 20px;
             height: 20px;
           }
+        }
         }
         .login-divider {
           background-color: var(--lighter-gray);
