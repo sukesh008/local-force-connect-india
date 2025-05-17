@@ -33,7 +33,7 @@ const App=()=>{
         <Route path="findjobs" element={<FindJobs />} />
         <Route path="contact" element={<Contact />} />
         <Route path="login" element={<LoginPage/>}/>
-        <Route path="wrokersignup" element={<WorkerSignUp/>}/>
+        <Route path="workersignup" element={<WorkerSignUp/>}/>
         <Route path="employer-register" element={<EmployeeRegister/>}/>
         <Route path="post-job" element={<RequiredAuth><PostJob/></RequiredAuth> }/>
         <Route path="worker-dashboard" element={<WorkerDashboard/>}/>

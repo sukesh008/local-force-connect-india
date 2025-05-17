@@ -317,6 +317,8 @@ const WorkerSignUp = () => {
         <Toaster
           content="Please fill all required fields"
           handleClick={handleToasterClose}
+          className="error"
+          type="Error"
         />
       )}
     </div>

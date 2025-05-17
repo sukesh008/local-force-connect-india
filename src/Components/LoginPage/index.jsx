@@ -192,7 +192,7 @@ const LoginPage = () => {
               className="sign-up-link"
               onClick={() =>
                 navigate(
-                  switchContainer ? "/employer-register" : "/wrokersignup"
+                  currentTab==="Employer Login" ? "/employer-register" : "/workersignup"
                 )
               }
             >
@@ -201,7 +201,7 @@ const LoginPage = () => {
           </span>
         </div>
       </div>
-      {showToaster && <Toaster content={toasterContent} handleClick={handleToaster}/>}
+      {showToaster && <Toaster content={toasterContent} handleClick={handleToaster} className="error" type="Error"/>}
     </div>
   );
 };

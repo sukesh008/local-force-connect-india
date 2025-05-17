@@ -1,46 +1,49 @@
 
 
 .toaster-main-container{
-    display: flex;
+     display: flex;
     flex-direction: column;
+    row-gap: 15px;
     position: fixed;
-    right: 10px;
-    bottom: 10px;
-    background-color: red;
-    color: var(--white);
-    width: clamp(50px,20vw,300px);
-    padding: 20px 20px 30px 20px;
+    right: 20px;
+    bottom: 20px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid var(--black);
     border-radius: 5px;
-    transform: translateX(20px);
-    opacity: 0.5;
-    animation: slideIn 0.4s ease forwards;
-    z-index: 10;
-    &:hover{
-        .close-button-container{
-            .close-button{
-            visibility: visible;
-        }
-        }
-    }
-   
-    .close-button-container{
-       display: flex;
-       justify-content: end;
-       .close-button{
-        font-size: 17px;
-        color: var(--lighter-gray);
-        visibility: hidden;
-        &:hover{
-            cursor: pointer;
-            color: var(--white);
-        }
-       }
+    width: fit-content;
+    animation: slideIn 0.2s ease-out;
+    .toaster-header{
+      display: flex;
+      justify-content: space-between;
+      .close-button:hover{
+        cursor: pointer;
+          color: var(--light-gray);
+      }
     }
 }
 
-@keyframes slideIn {
-  to {
+@keyframes slideIn{
+  from{
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0);
     opacity: 1;
-    transform: translateX(0);
   }
 }
+
+.error{
+  background-color: red;
+  color: var(--white);
+  border: none;
+}
+
+
+
+
+
+
+
+

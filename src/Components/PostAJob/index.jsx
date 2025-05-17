@@ -207,7 +207,7 @@ const PostJob = () => {
           />
         </div>
       </div>
-      {showToaster && <Toaster content="Please fill all required fields" handleClick={handleToaster}/>}
+      {showToaster && <Toaster content="Please fill all required fields" handleClick={handleToaster} className="error" type="Error"/>}
     </div>
   );
 };
