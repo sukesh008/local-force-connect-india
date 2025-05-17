@@ -27,8 +27,8 @@ const App=()=>{
     <div>
       {location.pathname !== "/*" && <NavBar />}
       {location.pathname !== "/*" && <WhatsApp />}
-      <WorkerDashboard/>
-      {/* <Routes>
+     
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="findjobs" element={<FindJobs />} />
         <Route path="contact" element={<Contact />} />
@@ -36,8 +36,9 @@ const App=()=>{
         <Route path="wrokersignup" element={<WorkerSignUp/>}/>
         <Route path="employer-register" element={<EmployeeRegister/>}/>
         <Route path="post-job" element={<RequiredAuth><PostJob/></RequiredAuth> }/>
+        <Route path="worker-dashboard" element={<WorkerDashboard/>}/>
         <Route path="*" element={<ErrorPage />} />
-      </Routes> */}
+      </Routes>
       {location.pathname !== "/*" && <Footer />}
     </div>
   </Provider>

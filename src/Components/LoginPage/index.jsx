@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { signinEmployerAction, signinWorkerAction } from "../Redux/ActionCreator/Action";
 import { UseAuth } from "../Auth";
 import Toaster from "../ReusableComponents/Toaster";
+import TabButton from "../ReusableComponents/SwitchTabsButton";
 
 const workerSignInDetails = {
   workerMail: "",
@@ -17,11 +18,14 @@ const employerSignInDetails = {
   employerPhone: "",
 };
 
+const tabs=["Worker Login","Employer Login"]
+const loginOptionTab=["Email","Phone"]
+
 const LoginPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [switchContainer, setSwitchContainer] = useState(false);
-  const [loginOption, setLoginOption] = useState(false);
+  const [loginOption, setLoginOption] = useState(loginOptionTab[0]);
+  const [currentTab,setCurrentTab]=useState(tabs[0])
   const [workerLoginDetail, setWorkerLoginDetail] =
     useState(workerSignInDetails);
   const [employerLoginDetail, setEmployerLoginDetail] = useState(
@@ -30,10 +34,11 @@ const LoginPage = () => {
   const[showToaster,setShowToaster]=useState(false);
   const[toasterContent,setToasterContent]=useState("")
   const toasterTimer=useRef(null)
+
   
 
   const handleSendOTP = () => {
-  if(!switchContainer){   
+  if(currentTab==="Worker Login"){   
     if(!workerLoginDetail.workerMail && !workerLoginDetail.workerPhone){ 
               setShowToaster(true)
               setToasterContent("Please enter Email or Phone number")
@@ -46,7 +51,7 @@ const LoginPage = () => {
       dispatch(signinWorkerAction(workerLoginDetail));
     }
   }
-  else if(switchContainer){   
+  else if(currentTab==="Employer Login"){   
     if(!employerLoginDetail.employerMail && !employerLoginDetail.employerPhone){ 
               setShowToaster(true)
               setToasterContent("Please enter Email or Phone number")
@@ -76,7 +81,10 @@ const LoginPage = () => {
   };
 
   const handleGoogleButton=(e)=>{
-    console.log("hii")
+    console.log("google-button")
+    if(currentTab==="Worker Login"){
+      navigate("/worker-dashboard")
+    }
   }
 
   console.log(workerLoginDetail);
@@ -84,31 +92,14 @@ const LoginPage = () => {
   return (
     <div className="login-main-container">
       <div className="login-container">
-        <div className="login-switch">
-          <span
-            className={` worker-login-switch ${
-              !switchContainer ? "active" : "non-active"
-            } `}
-            onClick={() => setSwitchContainer(false)}
-          >
-            Worker Login
-          </span>
-          <span
-            className={` employer-login-switch ${
-              switchContainer ? "active" : "non-active"
-            } `}
-            onClick={() => setSwitchContainer(true)}
-          >
-            Employer Login
-          </span>
-        </div>
+        <TabButton tabs={tabs} setCurrentTab={setCurrentTab} currentTab={currentTab}/>
         <div className="login-content-container">
           <div className="worker-login-header">
             <span className="worker-login-title">
-              {!switchContainer ? "Worker Login" : "Employer Login"}
+              {currentTab==="Worker Login" ? "Worker Login" : "Employer Login"}
             </span>
             <span className="worker-login-subtitle">
-              {!switchContainer
+              {currentTab==="Worker Login"
                 ? "Sign in to apply for jobs and manage your profile."
                 : "Sign in to post jobs and manage your company profile."}
             </span>
@@ -129,28 +120,11 @@ const LoginPage = () => {
             <div className="login-divider">
               <span className="login-divider-content">OR CONTINUE WITH</span>
             </div>
-            <div className="login-options">
-              <span
-                className={` login-via-email ${
-                  !loginOption ? "active" : "non-active"
-                }`}
-                onClick={() => setLoginOption(false)}
-              >
-                Email
-              </span>
-              <span
-                className={` login-via-phone  ${
-                  loginOption ? "active" : "non-active"
-                }`}
-                onClick={() => setLoginOption(true)}
-              >
-                Phone
-              </span>
-            </div>
+            <TabButton tabs={loginOptionTab} setCurrentTab={setLoginOption} currentTab={loginOption}/>
             <div className="login-input-field">
-              {!loginOption ? (
+              {loginOption==="Email" ? (
                 <>
-                  {!switchContainer ? (
+                  {currentTab==="Worker Login" ? (
                     <>
                       <label htmlFor="mail">Email</label>
                       <input
@@ -178,7 +152,7 @@ const LoginPage = () => {
                 </>
               ) : (
                 <>
-                  {!switchContainer ? (
+                  {currentTab==="Worker Login" ? (
                     <>
                       <label htmlFor="phone">Phone</label>
                       <input

@@ -1,25 +1,34 @@
+.tab-button-container {
+  display: flex;
+  column-gap: 10px;
+  background-color: var(--lighter-blue);
 
-.tab-button-container{
-    display: flex;
-    column-gap: 10px;
-    background-color: var(--lighter-blue);
-    width: fit-content;
-    padding:5px;
+  padding: 3px;
+  border-radius: 5px;
+
+  .tab-button {
+    flex: 1;
+    text-align: center;
+    color: var(--grayish-blue);
+    padding: 8px 10px;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .active {
+    background-color: var(--white);
+    color: var(--black);
     border-radius: 5px;
-  
-    .tab-button{
-       color: var(--grayish-blue);
-       padding: 8px 10px;
-         transition:all 0.5s ease;
-         font-size: 15px;
-        &:hover{
-            cursor: pointer;
-        }
-    }
-    .active{
-        background-color: var(--white);
-        color: var(--black);
-        border-radius: 5px;
-    }
-   
+    box-shadow: 1px 1px 2px var(--lighter-gray);
+  }
+}
+
+.find-job-view {
+  width: 80px;
+}
+
+.worker-dashboard-tabs {
+  width: 115px;
 }

@@ -2,8 +2,12 @@ import { Description, Work } from "@mui/icons-material";
 import Batch from "../../ReusableComponents/Batches";
 import Button from "../../ReusableComponents/Button";
 import "./ProfileSummary.css";
+import { useNavigate } from "react-router-dom";
 
-const ProfileSummary = () => {
+const ProfileSummary = ({setCurrentTab}) => {
+
+  
+
   return (
     <div className="profile-summary-main-container">
       <div className="summary-container">
@@ -47,11 +51,13 @@ const ProfileSummary = () => {
             className="ternary"
             preIcon={<Work sx={{ fontSize: "20px" }} />}
             buttonName="View Work History"
+            handleClick={()=>setCurrentTab("Work Experience")}
           />
           <Button
             className="ternary"
             preIcon={<Description sx={{ fontSize: "20px" }} />}
             buttonName="View Applications"
+              handleClick={()=>setCurrentTab("Job Applications")}
           />
         </div>
       </div>

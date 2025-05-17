@@ -4,25 +4,19 @@ import JobDetails from "./JobDetails";
 import JobList from "./JobList";
 import Button from "../ReusableComponents/Button";
 import { Box, Slider, Typography } from "@mui/material";
+import TabButton from "../ReusableComponents/SwitchTabsButton";
+
+
+const tabs=["List View","Map View"]
 
 const FindJobs = () => {
-  const [listView, setListView] = useState(true);
-  const [mapView, setMapView] = useState(false);
   const [value, setValue] = useState([28000, 40000]);
+  const [currentTab,setCurrentTab]=useState(tabs[0])
 
   const handleChange = (e,newValue) => {
     setValue(newValue);
   };
 
-  const handleMapView = () => {
-    setListView(false);
-    setMapView(true);
-  };
-
-  const handleListView = () => {
-    setListView(true);
-    setMapView(false);
-  };
 
   return (
     <div className="find-job-main-container">
@@ -44,23 +38,10 @@ const FindJobs = () => {
           </div>
           <Button className="primary" buttonName="Find Jobs" />
         </div>
-        {/* switch jobs */}
-        <div className="switch-job-view-container">
-          <div className="switch-job-view">
-            <span
-              className={listView ? "active" : "non-active"}
-              onClick={handleListView}
-            >
-              List View
-            </span>
-            <span
-              className={mapView ? "active" : "non-active"}
-              onClick={handleMapView}
-            >
-              Map View
-            </span>
-          </div>
-        </div>
+        {/* switch job view*/}
+       
+        <div className="switch-job-view-container"><TabButton tabs={tabs}  currentTab={currentTab} setCurrentTab={setCurrentTab} className="find-job-view"/></div>
+        
         {/* filter jobs  */}
         <div className="find-job-filter-container">
           <div className="find-job-filters">

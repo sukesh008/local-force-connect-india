@@ -7,36 +7,6 @@
     display: flex;
     flex-direction: column;
     row-gap: 35px;
-    .login-switch {
-      display: flex;
-      column-gap: 20px;
-      background-color: var(--lighter-blue);
-      padding: 5px;
-      align-items: center;
-      border-radius: 5px;
-      .worker-login-switch {
-        flex: 1;
-        text-align: center;
-        &:hover {
-          cursor: pointer;
-        }
-      }
-      .employer-login-switch {
-        flex: 1;
-        text-align: center;
-        &:hover {
-          cursor: pointer;
-        }
-      }
-      .active {
-        background-color: var(--white);
-        padding: 8px;
-        border-radius: 5px;
-      }
-      .non-active {
-        color: var(--grayish-blue);
-      }
-    }
     .login-content-container {
       display: flex;
       flex-direction: column;
@@ -80,36 +50,6 @@
             top: -7px;
             color: var(--grayish-blue);
             font-size: 12px;
-          }
-        }
-        .login-options {
-          display: flex;
-          column-gap: 20px;
-          background-color: var(--lighter-blue);
-          padding: 5px;
-          align-items: center;
-          border-radius: 5px;
-          .login-via-email {
-            flex: 1;
-            text-align: center;
-            &:hover {
-              cursor: pointer;
-            }
-          }
-          .login-via-phone {
-            flex: 1;
-            text-align: center;
-            &:hover {
-              cursor: pointer;
-            }
-          }
-          .active {
-            background-color: var(--white);
-            padding: 8px;
-            border-radius: 5px;
-          }
-          .non-active {
-            color: var(--grayish-blue);
           }
         }
         .login-input-field{

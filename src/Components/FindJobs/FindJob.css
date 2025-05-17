@@ -30,29 +30,6 @@
     .switch-job-view-container {
       display: flex;
       justify-content: end;
-      .switch-job-view {
-        background-color: #f2f6fb;
-        padding: 5px;
-        border-radius: 5px;
-        display: flex;
-        column-gap: 10px;
-        align-items: center;
-        span {
-          padding: 0px 10px;
-          transition: 0.2s step-start;
-          &:hover {
-            cursor: pointer;
-          }
-        }
-        .active {
-          background-color: #fff;
-          padding: 8px;
-          border-radius: 5px;
-        }
-        .non-active {
-          color: rgb(114, 113, 113);
-        }
-      }
     }
     .find-job-filter-container {
       display: flex;

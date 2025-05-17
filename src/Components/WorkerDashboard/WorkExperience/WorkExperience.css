@@ -1,0 +1,29 @@
+
+.work-experience-main-container{
+    .experience-container{
+        border: 1px solid var(--black);
+        padding: 20px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        .experience-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .experience-header-name{
+                display: flex;
+                flex-direction: column;
+                row-gap: 5px;
+                .experience-header-title{
+                    font-size: 25px;
+                    font-weight: 600;
+                }
+                .experience-header-subtitle{
+                    color: var(--grayish-blue);
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

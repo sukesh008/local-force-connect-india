@@ -1,0 +1,30 @@
+
+
+.job-application-main-container{
+    .application-container{
+        border: 1px solid var(--black);
+        padding: 20px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+        .application-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .application-header-name{
+                display: flex;
+                flex-direction: column;
+                row-gap: 5px;
+                .application-header-title{
+                    font-size: 25px;
+                    font-weight: 600;
+                }
+                .application-header-subtitle{
+                    font-size: 15px;
+                    color: var(--grayish-blue);
+                }
+            }
+        }
+    }
+}

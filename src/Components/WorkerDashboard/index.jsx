@@ -1,12 +1,20 @@
 import { EditDocument, Mail, Person } from "@mui/icons-material";
-import profileImage from "../../assets/vadivelu profile.jpg";
+import profileImage from "../../assets/Cillian Murphy  Thomas Shelby Peaky Blinders.jpg"
 import Batch from "../ReusableComponents/Batches";
 import Button from "../ReusableComponents/Button";
 import "./WorkerDashboard.css";
 import TabButton from "../ReusableComponents/SwitchTabsButton";
 import ProfileSummary from "./ProfileSummary";
+import { useState } from "react";
+import WorkExperience from "./WorkExperience";
+import JobApplication from "./JobApplication";
+
+const tabs=["Profile Summary","Work Experience","Job Applications"]
 
 const WorkerDashboard = () => {
+
+  const [currentTab,setCurrentTab]=useState(tabs[0])
+
   return (
     <div className="worker-dashboard-main-container">
       <div className="worker-dashboard-container">
@@ -44,8 +52,10 @@ const WorkerDashboard = () => {
             />
           </div>
           <div className="dashboard-career-profile">
-            <TabButton tabs={["Profile Summary","Work Experience","Job Applications"]}/>
-            <ProfileSummary/>
+            <div className="dashboard-career-tabs"><TabButton tabs={tabs} setCurrentTab={setCurrentTab} currentTab={currentTab} className="worker-dashboard-tabs"/></div>
+            {currentTab==="Profile Summary" && <ProfileSummary setCurrentTab={setCurrentTab}/>}
+            {currentTab==="Work Experience" && <WorkExperience/>}
+            {currentTab==="Job Applications" && <JobApplication/>}
           </div>
         </div>
       </div>
