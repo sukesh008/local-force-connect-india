@@ -18,15 +18,15 @@ const navigate=useNavigate()
             <span className="footer-forworkers-header">For Workers</span>
             <div className="footer-forworkers-content">
               <span onClick={()=>navigate("/findjobs")}>Find Jobs</span>
-              <span onClick={()=>navigate("/wrokersignup")}>Create Profile</span>
+              <span onClick={()=>navigate("/workersignup")}>Create Profile</span>
               <span onClick={()=>navigate('*')}>FAQ</span>
             </div>
           </div>
           <div className="home-footer-foremployers">
             <span className="footer-foremployers-header">For Employers</span>
             <div className="footer-foremployers-content">
-              <span>Post a Job</span>
-              <span>Register</span>
+              <span onClick={()=>navigate("/post-job")}>Post a Job</span>
+              <span onClick={()=>navigate("/employer-register")}>Register</span>
               <span onClick={()=>navigate('*')}>FAQ</span>
             </div>
           </div>
@@ -38,7 +38,7 @@ const navigate=useNavigate()
             </div>
             <Button
               buttonName="WhatsApp Support"
-              className="whatsApp"
+              className="special-button"
               preIcon={
                 <i
                   className="bx bx-phone"

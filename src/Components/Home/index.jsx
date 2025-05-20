@@ -5,9 +5,12 @@ import "./Home.css"
 import HowItWorks from "./HowItWorks";
 import JobCategory from "./JobCategories";
 import WhatOurUserSays from "./WhatOurUsersSay";
+import { useNavigate } from "react-router-dom";
 
 
 const Home= () => {
+
+  const navigate=useNavigate()
 
 useEffect(()=>{
    localStorage.setItem("isLoggedIn",false)
@@ -74,8 +77,8 @@ useEffect(()=>{
             LocalBlueForce
           </span>
           <div className="home-ready-to-find-job-buttons">
-            <Button buttonName="Register as Worker" className="secondary" />
-            <Button buttonName="Register as Employer" className="ternary" />
+            <Button buttonName="Register as Worker" className="secondary" handleClick={()=>navigate("/workersignup")}/>
+            <Button buttonName="Register as Employer" className="special-button" handleClick={()=>navigate("/employer-register")}/>
           </div>
         </div>
       </div>

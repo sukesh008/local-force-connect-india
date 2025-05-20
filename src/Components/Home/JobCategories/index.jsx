@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./jobCategories.css"
+import { useNavigate } from "react-router-dom";
 
 const popularjobs = [
   {
@@ -45,6 +46,7 @@ const popularjobs = [
 ];
 
 const JobCategory = () => {
+  const navigate=useNavigate()
   const [showJobs, setShowJobs] = useState(false);
   const [jobsShown, setJobShown] = useState(6);
 
@@ -64,7 +66,7 @@ const JobCategory = () => {
            
              if (index < jobsShown) {
               return (
-                <div className="popular-job" key={index}>
+                <div className="popular-job" key={index} onClick={()=>navigate("/findjobs")}>
                   <span className="job-icon">{data.icon}</span>
                   <div className="job-details">
                     <span className="job-title">{data.name}</span>

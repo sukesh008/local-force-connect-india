@@ -4,6 +4,8 @@ import "./WorkerSignUp.css"
 import Button from "../../ReusableComponents/Button";
 import Toaster from "../../ReusableComponents/Toaster";
 import DropFiles from "../../ReactDropZone/ReactDropZone";
+import { useDispatch } from "react-redux";
+import { signinWorkerAction } from "../../Redux/ActionCreator/Action";
 
 const details = {
   firstName: "",
@@ -24,7 +26,7 @@ const WorkerSignUp = () => {
   const [moveNextPage, setMoveNextPage] = useState(false);
     const [fileData,setFileData]=useState(null)
   const toasterTimer = useRef(null);
-
+   const dispatch=useDispatch()
   console.log(personalDetails);
 
   const handleInput = (e) => {
@@ -61,11 +63,13 @@ const WorkerSignUp = () => {
         setshowToaster(false);
       }, 3000);
     }
+    else{
+       dispatch(signinWorkerAction(personalDetails))
+    }
   };
 
   const handleToasterClose = () => {
     setshowToaster(false);
-    
   };
 
   return (

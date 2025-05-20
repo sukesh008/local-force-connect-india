@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./EmployeeRegister.css"
 import Button from "../../ReusableComponents/Button";
+import Toaster from "../../ReusableComponents/Toaster";
+import { useDispatch } from "react-redux";
+import { signinEmployerAction } from "../../Redux/ActionCreator/Action";
 
 
 
@@ -18,6 +21,7 @@ const employerDetails = {
   website: "",
   address: "",
   description: "",
+  file:""
 };
 
 const employerDetailsError = {
@@ -35,7 +39,9 @@ const employerDetailsError = {
 const EmployeeRegister = () => {
   const [details, setDetails] = useState(employerDetails);
   const [detailsError, setDetailsError] =useState(employerDetailsError);
-
+  const [showToaster,setShowToaster]=useState(false)
+   const toasterTimer=useRef(null);
+   const dispatch=useDispatch();
   console.log(detailsError);
 
   const handleInput = (e)=> {
@@ -47,6 +53,18 @@ const EmployeeRegister = () => {
   const handleValidation = () => {
     const { companyName, contact, phone, email, aadhar, pan, city, state } =
       details;
+      const hasError= !companyName || !contact || !phone || !email || !aadhar || !pan || !city || !state
+
+      if(hasError){
+      setShowToaster(true)
+      if(toasterTimer.current) clearTimeout(toasterTimer.current)
+      toasterTimer.current= setTimeout(()=>{
+          setShowToaster(false)
+      },3000)
+      }
+      else{
+        dispatch(signinEmployerAction(details))
+      }
     
     if (companyName) {
       if (isAlphabet(companyName) && companyName.length >= 3) {
@@ -360,6 +378,7 @@ const EmployeeRegister = () => {
           />
         </div>
       </div>
+      {showToaster && <Toaster content="Please enter the required data" type="Error" className="error" handleClick={()=>setShowToaster(false)}/>}
     </div>
   );
 };

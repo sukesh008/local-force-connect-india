@@ -11,9 +11,12 @@
     outline: none;
     justify-content: center;
     transition: all 0.2s ease;
+   
     &:hover{
         cursor: pointer;
-        opacity: 0.5;
+        /* opacity: 0.5; */
+        filter: brightness(80%);
+         
     }
 }
 
@@ -48,16 +51,16 @@
 }
 
  .login-secondary:hover {
-        background-color: rgb(25, 100, 243,0.5);
+        background-color: rgb(25, 100, 243);
         color: #fff;
-        
+        filter: brightness(100%);
     }
 
 .login-secondary:hover .bx{
     color: #ffffff !important;
 }
 
-.whatsApp{
+.special-button{
     background-color: rgb(238, 155, 0);
     border: none;
     &:hover{

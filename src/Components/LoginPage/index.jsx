@@ -82,7 +82,7 @@ const LoginPage = () => {
 
   const handleGoogleButton=(e)=>{
     // if(currentTab==="Worker Login" ){
-    //   navigate("/worker-dashboard")
+    //   navigate("/worker-dashboard") 
     // }
     console.log("hii")
   }
@@ -126,7 +126,7 @@ const LoginPage = () => {
               {loginOption==="Email" ? (
                 <>
                   {currentTab==="Worker Login" ? (
-                    <>
+                    <> 
                       <label htmlFor="mail">Email</label>
                       <input
                         type="text"
