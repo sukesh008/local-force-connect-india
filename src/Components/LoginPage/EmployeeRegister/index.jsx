@@ -4,12 +4,14 @@ import Button from "../../ReusableComponents/Button";
 import Toaster from "../../ReusableComponents/Toaster";
 import { useDispatch } from "react-redux";
 import { signinEmployerAction } from "../../Redux/ActionCreator/Action";
+import DropFiles from "../../ReactDropZone/ReactDropZone";
 
 
 
 
 
 const employerDetails = {
+  type:"employer",
   companyName: "",
   contact: "",
   phone: "",
@@ -21,7 +23,8 @@ const employerDetails = {
   website: "",
   address: "",
   description: "",
-  file:""
+  certificate:"",
+  terms:false
 };
 
 const employerDetailsError = {
@@ -42,12 +45,17 @@ const EmployeeRegister = () => {
   const [showToaster,setShowToaster]=useState(false)
    const toasterTimer=useRef(null);
    const dispatch=useDispatch();
-  console.log(detailsError);
+  console.log(details);
 
   const handleInput = (e)=> {
     const { name, value } = e.target;
-    setDetails((p) => ({ ...p, [name]: value }));
-    setDetailsError(p=>({...p,[name+"Error"]:""}))
+    if(name==="terms"){
+      setDetails(p=>({...p,terms:!details.terms}))
+    }
+    else{
+      setDetails((p) => ({ ...p, [name]: value }));
+    }
+     setDetailsError(p=>({...p,[name+"Error"]:""}));
   };
 
   const handleValidation = () => {
@@ -58,7 +66,7 @@ const EmployeeRegister = () => {
       if(hasError){
       setShowToaster(true)
       if(toasterTimer.current) clearTimeout(toasterTimer.current)
-      toasterTimer.current= setTimeout(()=>{
+      toasterTimer.current= setTimeout(()=>{ 
           setShowToaster(false)
       },3000)
       }
@@ -296,7 +304,7 @@ const EmployeeRegister = () => {
               <label htmlFor="doc">
                 Company Document <span className="input-important">*</span>
               </label>
-              <input id="doc" type="file" />
+             <DropFiles accept=".pdf,.doc,.docx" setFileData={setDetails}/>
               <span className="file-field">
                 Upload registration certificate, GST certificate, or other
                 official document
@@ -359,7 +367,7 @@ const EmployeeRegister = () => {
           </div>
           <div className="employer-input-terms-row">
             <div className="employer-input-field">
-              <input type="checkbox" id="terms" />
+              <input type="checkbox" id="terms" onClick={handleInput} name="terms"/>
               <div className="input-terms-field">
                 <label className="input-terms-label" htmlFor="terms">
                   I am owner/primary administrator of this company

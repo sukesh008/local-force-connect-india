@@ -3,7 +3,7 @@ import { postWorkerActionCreator } from "./SignInUserActionCreator";
 
 export const signinWorkerAction = (data) => {
   return async (dispatch) => {
-    const response = await axios.post("http://localhost:2222/login", data);
+    const response = await axios.post("http://localhost:1234/user-API", data);
     if (response && response.data) {
       dispatch(postWorkerActionCreator(response?.data));
     }
@@ -13,7 +13,7 @@ export const signinWorkerAction = (data) => {
 
 export const signinEmployerAction=(data)=>{
   return async(dispatch)=>{
-    const response=await axios.post("http://localhost:2222/empsignup",data);
+    const response=await axios.post("http://localhost:1234/user-API",data);
     dispatch(response?.data)
   }
 }

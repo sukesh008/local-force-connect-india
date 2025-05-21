@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { signinWorkerAction } from "../../Redux/ActionCreator/Action";
 
 const details = {
+  type:"worker",
   firstName: "",
   lastName: "",
   mail: "",
@@ -17,25 +18,26 @@ const details = {
   skill: "",
   workExperience: "",
   education: "",
+  certificate:""
 };
 
 const WorkerSignUp = () => {
 
-  const [personalDetails, setPersonalDetails] = useState(details);
+  const [workerDetail, setWorkerDetail] = useState(details);
   const [showToaster, setshowToaster] = useState(false);
   const [moveNextPage, setMoveNextPage] = useState(false);
-    const [fileData,setFileData]=useState(null)
   const toasterTimer = useRef(null);
    const dispatch=useDispatch()
-  console.log(personalDetails);
+  console.log(workerDetail);
+  
 
   const handleInput = (e) => {
     const { name, value } = e.target;
-    setPersonalDetails((p) => ({ ...p, [name]: value }));
+    setWorkerDetail((p) => ({ ...p, [name]: value }));
   };
 
   const handleNext = ()=> {
-    const { firstName, lastName, mail, phone, city, state } = personalDetails;
+    const { firstName, lastName, mail, phone, city, state } = workerDetail;
     const hasError =
       !firstName || !lastName || !mail || !phone || !city || !state;
 
@@ -53,8 +55,8 @@ const WorkerSignUp = () => {
   };
 
   const handleRegistration = () => {
-    const { skill, workExperience, education } = personalDetails;
-    const hasError = !skill || !workExperience || !education || !fileData;
+    const { skill, workExperience, education,certificate } = workerDetail;
+    const hasError = !skill || !workExperience || !education || !certificate;
 
     if (hasError) {
       setshowToaster(true);
@@ -64,7 +66,7 @@ const WorkerSignUp = () => {
       }, 3000);
     }
     else{
-       dispatch(signinWorkerAction(personalDetails))
+       dispatch(signinWorkerAction(workerDetail))
     }
   };
 
@@ -111,7 +113,7 @@ const WorkerSignUp = () => {
                       type="text"
                       name="firstName"
                       onChange={handleInput}
-                      value={personalDetails.firstName}
+                      value={workerDetail.firstName}
                     />
                   </div>
                   <div className="input-field">
@@ -123,7 +125,7 @@ const WorkerSignUp = () => {
                       type="text"
                       name="lastName"
                       onChange={handleInput}
-                      value={personalDetails.lastName}
+                      value={workerDetail.lastName}
                     />
                   </div>
                 </div>
@@ -137,7 +139,7 @@ const WorkerSignUp = () => {
                       type="text"
                       name="mail"
                       onChange={handleInput}
-                      value={personalDetails.mail}
+                      value={workerDetail.mail}
                     />
                   </div>
                 </div>
@@ -151,7 +153,7 @@ const WorkerSignUp = () => {
                       type="text"
                       name="phone"
                       onChange={handleInput}
-                      value={personalDetails.phone}
+                      value={workerDetail.phone}
                     />
                   </div>
                 </div>
@@ -165,7 +167,7 @@ const WorkerSignUp = () => {
                       type="text"
                       name="city"
                       onChange={handleInput}
-                      value={personalDetails.city}
+                      value={workerDetail.city}
                     />
                   </div>
                   <div className="input-field">
@@ -176,7 +178,7 @@ const WorkerSignUp = () => {
                     <Select
                       id="state"
                       onChange={handleInput}
-                      value={personalDetails.state}
+                      value={workerDetail.state}
                       displayEmpty
                       name="state"
                       className="select"
@@ -222,7 +224,7 @@ const WorkerSignUp = () => {
                     id="text"
                     placeholder="e.g., Electrician, Plumbing, Carpentery"
                     onChange={handleInput}
-                    value={personalDetails.skill}
+                    value={workerDetail.skill}
                     name="skill"
                   />
                 </div>
@@ -233,7 +235,7 @@ const WorkerSignUp = () => {
                     displayEmpty
                     name="workExperience"
                     onChange={handleInput}
-                    value={personalDetails.workExperience}
+                    value={workerDetail.workExperience}
                     sx={{
                       height: 38,
                       fontSize: 14,
@@ -269,7 +271,7 @@ const WorkerSignUp = () => {
                     displayEmpty
                     name="education"
                     onChange={handleInput}
-                    value={personalDetails.education}
+                    value={workerDetail.education}
                     sx={{
                       height: 38,
                       fontSize: 14,
@@ -295,7 +297,7 @@ const WorkerSignUp = () => {
                 </div>
                 <div className="signup-two-input-row">
                   <label htmlFor="fileData">Resume/CV</label>
-                  <DropFiles accept=".pdf,.doc,.docx" setFileData={setFileData} htmlFor="fileData"/>
+                  <DropFiles accept=".pdf,.doc,.docx" setFileData={setWorkerDetail}/>
                   <span className="file-field">
                     Upload your resume in PDF or DOC format (Max: 2MB)
                   </span>

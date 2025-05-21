@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 
-function DropFiles({ accept, setFileData }) {
+function DropFiles({ accept, setFileData ,setWorkerDetail}) {
   const [fileName, setFileName] = useState(null);
 
   const onDrop = useCallback((acceptedFiles) => {
@@ -13,10 +13,11 @@ function DropFiles({ accept, setFileData }) {
     const reader = new FileReader();
     reader.onloadend = () => {
       const base64String = reader.result;
-      setFileData(base64String); 
+      // setFileData(base64String); 
+      setFileData(p=>({...p,certificate:base64String}))
     };
     reader.readAsDataURL(file);
-  }, [setFileData]);
+  }, [setFileData,setWorkerDetail]);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
