@@ -5,13 +5,16 @@ import Button from "../../ReusableComponents/Button";
 import Toaster from "../../ReusableComponents/Toaster";
 import DropFiles from "../../ReactDropZone/ReactDropZone";
 import { useDispatch } from "react-redux";
-import { signinWorkerAction } from "../../Redux/ActionCreator/Action";
+import { signUpUserAction } from "../../Redux/ActionCreator/Action";
+
 
 const details = {
   type:"worker",
   firstName: "",
   lastName: "",
   mail: "",
+  password:"",
+  confirmPassword:"",
   phone: "",
   city: "",
   state: "",
@@ -21,9 +24,15 @@ const details = {
   certificate:""
 };
 
+const detailsError={
+  passwordError:"",
+  confirmPasswordError:"",
+}
+
 const WorkerSignUp = () => {
 
   const [workerDetail, setWorkerDetail] = useState(details);
+  const [error,setError]=useState(detailsError)
   const [showToaster, setshowToaster] = useState(false);
   const [moveNextPage, setMoveNextPage] = useState(false);
   const toasterTimer = useRef(null);
@@ -34,12 +43,33 @@ const WorkerSignUp = () => {
   const handleInput = (e) => {
     const { name, value } = e.target;
     setWorkerDetail((p) => ({ ...p, [name]: value }));
+    setError(p=>({...p,[name+"Error"]:""}))
   };
 
   const handleNext = ()=> {
-    const { firstName, lastName, mail, phone, city, state } = workerDetail;
+    const { firstName, lastName, mail, phone, city, state,password, confirmPassword} = workerDetail;
     const hasError =
-      !firstName || !lastName || !mail || !phone || !city || !state;
+      !firstName || !lastName || !mail || !phone || !city || !state || !password || !confirmPassword;
+
+      if(password){
+          setError(P=>({passwordError:""}))
+      }
+      else{
+        setError(p=>({...p,passwordError:"Password should be atleast minimum 8 characters"}))
+      }
+
+      if(confirmPassword){
+          if(password===confirmPassword){
+            setError(p=>({...p,confirmPasswordError:""}))
+          }
+          else{
+            setError(p=>({...p,confirmPasswordError:"Confirm Password should be same as the password"}))
+          }
+      }
+      else{
+        setError(p=>({...p,confirmPasswordError:"Confirm Password should be same as the password"}))
+      }
+    
 
     if (hasError) {
       setshowToaster(true);
@@ -66,7 +96,7 @@ const WorkerSignUp = () => {
       }, 3000);
     }
     else{
-       dispatch(signinWorkerAction(workerDetail))
+       dispatch(signUpUserAction(workerDetail))
     }
   };
 
@@ -143,6 +173,38 @@ const WorkerSignUp = () => {
                     />
                   </div>
                 </div>
+                <div className="signup-one-input-row">
+                  <div className="input-field">
+                    <label htmlFor="pass">
+                     Password <span className="input-important">*</span>
+                    </label>
+                    <input
+                      id="pass"
+                      type="password"
+                      name="password"
+                      onChange={handleInput}
+                      value={workerDetail.password}
+                    />
+                    {error.passwordError && <span className="error-message">{error.passwordError}</span>}
+                  </div>
+                </div> 
+                
+                <div className="signup-one-input-row">
+                  <div className="input-field">
+                    <label htmlFor="cpass">
+                     Confirm Password <span className="input-important">*</span>
+                    </label>
+                    <input
+                      id="cpass"
+                      type="password"
+                      name="confirmPassword"
+                      onChange={handleInput}
+                      value={workerDetail.confirmPassword}
+                    />
+                    {error.confirmPasswordError && <span className="error-message">{error.confirmPasswordError}</span>} 
+                  </div>
+                </div>
+                 
                 <div className="signup-one-input-row">
                   <div className="input-field">
                     <label htmlFor="phone">

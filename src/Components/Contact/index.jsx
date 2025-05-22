@@ -42,14 +42,14 @@ const Contact = () => {
         setUserDetailsError(p=>({
           ...p,
           nameError:
-            "Name Should be in minimum 3 characters and it should contains only alphabets",
+            "Name Should be minimum 3 characters and it should contains only alphabets",
         }));
       }
     } else {
       setUserDetailsError(p=>({
         ...p,
         nameError:
-          "Name Should be in minimum 3 characters and it should contains only alphabets",
+          "Name Should be minimum 3 characters and it should contains only alphabets",
       }));
     }
     if(mail){
@@ -74,7 +74,7 @@ const Contact = () => {
             setUserDetailsError(p=>({...p,numberError:""}))
        }
        else{
-        setUserDetailsError(p=>({...p,nameError:"Requires 10 numbers and no any other characters"}))
+        setUserDetailsError(p=>({...p,numberError:"Requires 10 numbers and no any other characters"}))
        }
    }
    else{

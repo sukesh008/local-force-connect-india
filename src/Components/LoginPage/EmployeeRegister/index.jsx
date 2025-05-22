@@ -3,7 +3,7 @@ import "./EmployeeRegister.css"
 import Button from "../../ReusableComponents/Button";
 import Toaster from "../../ReusableComponents/Toaster";
 import { useDispatch } from "react-redux";
-import { signinEmployerAction } from "../../Redux/ActionCreator/Action";
+import { signUpUserAction } from "../../Redux/ActionCreator/Action";
 import DropFiles from "../../ReactDropZone/ReactDropZone";
 
 
@@ -16,6 +16,8 @@ const employerDetails = {
   contact: "",
   phone: "",
   email: "",
+  password:"",
+  confirmPassword:"",
   aadhar: "",
   pan: "",
   city: "",
@@ -36,6 +38,8 @@ const employerDetailsError = {
   panError: "",
   cityError: "",
   stateError: "",
+  passwordError:"",
+  confirmPasswordError:"",
 };
 
 
@@ -59,9 +63,9 @@ const EmployeeRegister = () => {
   };
 
   const handleValidation = () => {
-    const { companyName, contact, phone, email, aadhar, pan, city, state } =
+    const { companyName, contact, phone, email, aadhar, pan, city, state ,password,confirmPassword} =
       details;
-      const hasError= !companyName || !contact || !phone || !email || !aadhar || !pan || !city || !state
+      const hasError= !companyName || !contact || !phone || !email || !aadhar || !pan || !city || !state || !password || !confirmPassword
 
       if(hasError){
       setShowToaster(true)
@@ -71,7 +75,7 @@ const EmployeeRegister = () => {
       },3000)
       }
       else{
-        dispatch(signinEmployerAction(details))
+        dispatch(signUpUserAction(details))
       }
     
     if (companyName) {
@@ -137,6 +141,25 @@ const EmployeeRegister = () => {
         emailError: "Please enter a valid email address",
       }));
     }
+
+      if(password){
+          setDetailsError(P=>({passwordError:""}))
+      }
+      else{
+        setDetailsError(p=>({...p,passwordError:"Password should be atleast minimum 8 characters"}))
+      }
+
+      if(confirmPassword){
+          if(password===confirmPassword){
+            setDetailsError(p=>({...p,confirmPasswordError:""}))
+          }
+          else{
+            setDetailsError(p=>({...p,confirmPasswordError:"Confirm Password should be same as the password"}))
+          }
+      }
+      else{
+        setDetailsError(p=>({...p,confirmPasswordError:"Confirm Password should be same as the password"}))
+      }
 
     if (aadhar) {
       if (aadhar.length >= 12) {
@@ -264,6 +287,38 @@ const EmployeeRegister = () => {
               />
                {detailsError.emailError && (
                 <span className="error-message">{detailsError.emailError}</span>
+              )}
+            </div>
+          </div>
+          <div className="employer-input-row">
+            <div className="employer-input-field">
+              <label htmlFor="pass">
+                Password <span className="input-important">*</span>
+              </label>
+              <input
+                id="pass"
+                name="password"
+                type="password"
+                onChange={handleInput}
+              />
+               {detailsError.passwordError && (
+                <span className="error-message">{detailsError.passwordError}</span>
+              )}
+            </div>
+          </div>
+          <div className="employer-input-row">
+            <div className="employer-input-field">
+              <label htmlFor="cpass">
+               Confirm Password <span className="input-important">*</span>
+              </label>
+              <input
+                id="cpass"
+                name="confirmPassword"
+                type="password"
+                onChange={handleInput}
+              />
+               {detailsError.confirmPasswordError && (
+                <span className="error-message">{detailsError.confirmPasswordError}</span>
               )}
             </div>
           </div>

@@ -28,7 +28,7 @@ useEffect(()=>{
               Connecting skilled workers with quality employers across India
             </span>
             <div className="home-findjob-buttons">
-              <Button buttonName="Find Jobs" className="primary" />
+              <Button buttonName="Find Jobs" className="primary"  handleClick={()=>navigate("/findjobs")}/>
               <Button buttonName="Post a Job" className="primary" />
             </div>
           </div>
